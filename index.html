@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tom Firth · Forward Deployed Engineer</title>
+<meta name="description" content="Tom Firth finds the work AI should be doing, builds it, and gets people using it. Self-employed FDE for a London corporate finance firm.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: one narrow column. A hero thesis, a vertical timeline of opportunities Tom created, three tight work cards, five principles. */
+:root{
+  --paper:#F5F6F8; --card:#FFFFFF; --ink:#0F1720; --muted:#5B6672; --rule:#DCE1E6;
+  --accent:#0B6E4F; --accent-soft:#E1F0EA;
+  --f-display:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Source Serif 4",Georgia,serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root{
+  --paper:#0D1318; --card:#141C23; --ink:#E8EDF2; --muted:#98A4B0; --rule:#26323D;
+  --accent:#5CCB9F; --accent-soft:#132D26; color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:18px;line-height:1.55}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:720px;margin:0 auto;padding-inline:20px;padding-block:64px 72px}
+.eyebrow{font-family:var(--f-mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(36px,6.4vw,56px);line-height:1.02;letter-spacing:-.02em;margin:0 0 20px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.sub{font-size:20px;margin:0 0 22px;max-width:56ch}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.btn{font-family:var(--f-display);font-weight:600;font-size:15px;text-decoration:none;padding:8px 14px;border-radius:6px;border:1px solid var(--rule);color:var(--ink);background:var(--card)}
+.btn.primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn:hover{border-color:var(--accent)}
+h2{font-family:var(--f-display);font-weight:600;font-size:14px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:64px 0 22px}
+/* timeline */
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--rule)}
+.tl li{position:relative;padding:0 0 26px 36px}
+.tl li:last-child{padding-bottom:0}
+.tl li::before{content:"";position:absolute;left:0;top:7px;width:16px;height:16px;border-radius:50%;background:var(--paper);border:3px solid var(--accent)}
+.tl li.now::before{background:var(--accent)}
+.when{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.tl h3{font-family:var(--f-display);font-weight:700;font-size:21px;margin:2px 0 4px;line-height:1.25}
+.tl p{margin:0}
+/* work */
+.work{display:grid;gap:16px}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:22px 24px}
+.card h3{font-family:var(--f-display);font-weight:700;font-size:20px;margin:0 0 12px}
+.rows{display:grid;grid-template-columns:76px 1fr;gap:6px 14px;margin:0}
+.rows dt{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);padding-top:3px}
+.rows dd{margin:0}
+.stack{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);margin:14px 0 0}
+/* principles */
+.how{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.how li{font-family:var(--f-display);font-weight:600;font-size:16px;padding:9px 14px;border-radius:999px;background:var(--accent-soft);color:var(--ink)}
+.note{font-size:16px;color:var(--muted);margin:40px 0 0}
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--f-display);font-size:15px;color:var(--muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px}
+@media (max-width:540px){body{font-size:17px}.sub{font-size:18px}.rows{grid-template-columns:1fr}.rows dt{padding-top:6px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+<p class="eyebrow">Tom Firth · Forward Deployed Engineer · London</p>
+<h1>I find the work AI should be doing, build it, <em>and get people using it.</em></h1>
+<p class="sub">Economics finalist at Exeter and self-employed FDE for a London corporate finance firm. Every role so far I have created by building first and pitching second.</p>
+<nav class="links" aria-label="Contact">
+  <a class="btn primary" href="mailto:tom.firthy314@gmail.com">Email me</a>
+  <a class="btn" href="https://www.linkedin.com/in/tom-firth24/">LinkedIn</a>
+  <a class="btn" href="https://github.com/tomfirth-ai">GitHub</a>
+</nav>
+
+<h2>How I got here</h2>
+<ol class="tl">
+  <li>
+    <div class="when">2025 to 2026 · IBM Consulting</div>
+    <h3>Learnt the craft inside a client</h3>
+    <p>Embedded with a global consumer goods client: workshops, agentic tools, handover. They now save its teams 100+ hours a week.</p>
+  </li>
+  <li>
+    <div class="when">Spring 2026 · UK search fund</div>
+    <h3>Built in my own time, then won the work</h3>
+    <p>Rebuilt the fund's deal sourcing as an AI pipeline with human review gates. Five weeks from blank page to a full working run.</p>
+  </li>
+  <li>
+    <div class="when">Summer 2026 · Victanis Advisory Services</div>
+    <h3>Pitched a bigger version to a corporate finance firm</h3>
+    <p>Sole engineer on the firm's AI hub, trainer to the whole office, and on the team for live deals, including one from LOI to completion.</p>
+  </li>
+  <li class="now">
+    <div class="when">Now</div>
+    <h3>Retained as a self-employed FDE</h3>
+    <p>One to two days a week alongside my final year. Looking for a forward deployed role from summer 2027.</p>
+  </li>
+</ol>
+
+<h2>Tooling</h2>
+<div class="work">
+  <article class="card">
+    <h3>Buy-side origination tooling</h3>
+    <dl class="rows">
+      <dt>Problem</dt><dd>Weeks of research and drafting on every mandate.</dd>
+      <dt>Built</dt><dd>Market map, screening, sourced research and draft approach letters in one app. Partners review and sign.</dd>
+      <dt>Result</dt><dd>Research time cut to a fraction. Judgement unchanged, by design.</dd>
+    </dl>
+    <p class="stack">Python · Claude API · model per task · cited sources · cost logging · tests</p>
+  </article>
+  <article class="card">
+    <h3>Ask [Firm]</h3>
+    <dl class="rows">
+      <dt>Problem</dt><dd>Years of past work nobody has time to search.</dd>
+      <dt>Built</dt><dd>A Claude agent that answers in plain English from the firm's own files, cites the document, and says "I don't know" when the answer isn't there.</dd>
+      <dt>Stage</dt><dd>Proof of concept, deliberately scoped to one library.</dd>
+    </dl>
+    <p class="stack">Claude agent · read-only tools · DuckDB · citations</p>
+  </article>
+  <article class="card">
+    <h3>In-person Claude workshops</h3>
+    <dl class="rows">
+      <dt>Did</dt><dd>A weekly hands-on workshop for the whole London office for three months, always on live work, then intensive sessions with the founders in Munich. Plus Claude Skills for core processes and a security review before rolling out an open-source MCP server.</dd>
+      <dt>Result</dt><dd>Everyone moved onto Claude Enterprise.</dd>
+    </dl>
+  </article>
+</div>
+
+<h2>How I work</h2>
+<ul class="how">
+  <li>Users first</li>
+  <li>Engines before screens</li>
+  <li>Source everything</li>
+  <li>Judgement stays human</li>
+  <li>Measure failure</li>
+</ul>
+
+<p class="note">The code belongs to the firms I built it for, so I describe it rather than share it. Happy to walk through any of it.</p>
+
+<footer>
+  <span>Tom Firth · London · Graduating 2027</span>
+  <a href="mailto:tom.firthy314@gmail.com">tom.firthy314@gmail.com</a>
+</footer>
+
+</main>
+</body>
+</html>
