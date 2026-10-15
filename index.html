@@ -9,7 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* Layout: one narrow column. A hero thesis, a vertical timeline of opportunities Tom created, three tight work cards, five principles. */
+/* Layout: one narrow column. Hero thesis, a timeline of opportunities Tom created, three work cards that
+   each open into "how it works" (flow, design choices, proof), five principles. */
 :root{
   --paper:#F5F6F8; --card:#FFFFFF; --ink:#0F1720; --muted:#5B6672; --rule:#DCE1E6;
   --accent:#0B6E4F; --accent-soft:#E1F0EA;
@@ -23,7 +24,7 @@
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:18px;line-height:1.55}
 a{color:var(--accent);text-underline-offset:3px}
-a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 .wrap{max-width:720px;margin:0 auto;padding-inline:20px;padding-block:64px 72px}
 .eyebrow{font-family:var(--f-mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
 h1{font-family:var(--f-display);font-weight:700;font-size:clamp(36px,6.4vw,56px);line-height:1.02;letter-spacing:-.02em;margin:0 0 20px;text-wrap:balance}
@@ -44,7 +45,7 @@ h2{font-family:var(--f-display);font-weight:600;font-size:14px;letter-spacing:.0
 .when{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
 .tl h3{font-family:var(--f-display);font-weight:700;font-size:21px;margin:2px 0 4px;line-height:1.25}
 .tl p{margin:0}
-/* work */
+/* work cards */
 .work{display:grid;gap:16px}
 .card{background:var(--card);border:1px solid var(--rule);border-radius:8px;padding:22px 24px}
 .card h3{font-family:var(--f-display);font-weight:700;font-size:20px;margin:0 0 12px}
@@ -52,12 +53,42 @@ h2{font-family:var(--f-display);font-weight:600;font-size:14px;letter-spacing:.0
 .rows dt{font-family:var(--f-mono);font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);padding-top:3px}
 .rows dd{margin:0}
 .stack{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);margin:14px 0 0}
+/* how it works: collapsible */
+details{margin-top:16px;border-top:1px solid var(--rule);padding-top:12px}
+summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:600;font-size:15px;color:var(--accent)}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .15s ease}
+details[open] summary::before{transform:rotate(45deg)}
+.how-body{font-size:16.5px;line-height:1.55}
+.how-body h4{font-family:var(--f-mono);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:20px 0 10px}
+/* flow chips */
+.flow{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;row-gap:8px}
+.flow li{display:inline-flex;align-items:center;font-family:var(--f-display);font-weight:600;font-size:14px;line-height:1.25}
+.flow li span{padding:6px 10px;border-radius:6px;border:1px solid var(--rule);background:var(--paper)}
+.flow li.h span{background:var(--accent-soft);border:1.5px dashed var(--accent)}
+.flow li:not(:last-child)::after{content:"\2192";color:var(--muted);margin:0 7px;font-family:var(--f-mono);font-weight:400}
+.key{display:flex;flex-wrap:wrap;gap:6px 16px;margin:10px 0 0;font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.key span{display:inline-flex;align-items:center;gap:6px}
+.key i{display:inline-block;width:14px;height:10px;border-radius:3px;border:1px solid var(--rule);background:var(--paper)}
+.key i.h{background:var(--accent-soft);border:1.5px dashed var(--accent)}
+/* points */
+.pts{list-style:none;margin:0;padding:0}
+.pts li{position:relative;padding-left:18px;margin:0 0 8px}
+.pts li:last-child{margin-bottom:0}
+.pts li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.pts b{font-family:var(--f-display);font-weight:600}
+.v1{margin:0;padding:12px 14px;border-left:3px solid var(--accent);background:var(--paper);border-radius:0 6px 6px 0}
 /* principles */
 .how{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
 .how li{font-family:var(--f-display);font-weight:600;font-size:16px;padding:9px 14px;border-radius:999px;background:var(--accent-soft);color:var(--ink)}
 .note{font-size:16px;color:var(--muted);margin:40px 0 0}
 footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--f-display);font-size:15px;color:var(--muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px}
-@media (max-width:540px){body{font-size:17px}.sub{font-size:18px}.rows{grid-template-columns:1fr}.rows dt{padding-top:6px}}
+@media (max-width:540px){
+  body{font-size:17px}.sub{font-size:18px}
+  .card{padding:20px 18px}
+  .rows{grid-template-columns:1fr}.rows dt{padding-top:6px}
+  .flow li{font-size:13.5px}
+}
 </style>
 </head>
 <body>
@@ -65,7 +96,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--rule);font-fa
 
 <p class="eyebrow">Tom Firth · Forward Deployed Engineer · London</p>
 <h1>I find the work AI should be doing, build it, <em>and get people using it.</em></h1>
-<p class="sub">Economics finalist at Exeter and self-employed FDE for a London corporate finance firm. Every role so far I have created by building first and pitching second.</p>
+<p class="sub">Economics finalist at Exeter and self-employed FDE for a London corporate finance firm. I won my last two roles by building first and pitching second.</p>
 <nav class="links" aria-label="Contact">
   <a class="btn primary" href="mailto:tom.firthy314@gmail.com">Email me</a>
   <a class="btn" href="https://www.linkedin.com/in/tom-firth24/">LinkedIn</a>
@@ -98,7 +129,8 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--rule);font-fa
 
 <h2>Tooling</h2>
 <div class="work">
-  <article class="card">
+
+  <article class="card" id="origination">
     <h3>Buy-side origination tooling</h3>
     <dl class="rows">
       <dt>Problem</dt><dd>Weeks of research and drafting on every mandate.</dd>
@@ -106,8 +138,44 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--rule);font-fa
       <dt>Result</dt><dd>Research time cut to a fraction. Judgement unchanged, by design.</dd>
     </dl>
     <p class="stack">Python · Claude API · model per task · cited sources · cost logging · tests</p>
+    <details>
+      <summary>How it works</summary>
+      <div class="how-body">
+        <h4>The flow</h4>
+        <ol class="flow">
+          <li><span>Map the market</span></li>
+          <li><span>Screen on the numbers</span></li>
+          <li class="h"><span>Team picks targets</span></li>
+          <li><span>Research each target</span></li>
+          <li><span>Draft the letter</span></li>
+          <li><span>Check every fact</span></li>
+          <li class="h"><span>Partner edits and signs</span></li>
+        </ol>
+        <p class="key"><span><i></i>Software</span><span><i class="h"></i>A person decides</span></p>
+
+        <h4>Design choices</h4>
+        <ul class="pts">
+          <li><b>Engines before screens.</b> Each tool was proven from the command line before it got a page, and the page calls that tested engine, so the screen cannot drift from what was tested.</li>
+          <li><b>The right model for each job.</b> Haiku reads websites and filings, Sonnet writes the analysis, Opus writes the letter, all set from one list.</li>
+          <li><b>Source everything.</b> Every claim carries its source and a confidence level. A checker traces every name and number in a letter back to the research before a partner sees it.</li>
+          <li><b>Refuse rather than bluff.</b> Paid services are checked before a run, and a run that cannot succeed will not start. Every call is costed and logged.</li>
+        </ul>
+
+        <h4>How I tested it</h4>
+        <ul class="pts">
+          <li>23 offline checks, each proved by breaking the code on purpose: 150+ deliberate breaks, every one caught.</li>
+          <li>A root-cause review of three months of runs: 31 findings, 29 fixed.</li>
+          <li>Success reported weekly against a 99% target, where a wrong letter counts as a failure.</li>
+          <li>About 49,000 lines of Python, about 8,000 of them tests. Sole builder, working with Claude Code.</li>
+        </ul>
+
+        <h4>Version one</h4>
+        <p class="v1">A nine-stage pipeline for a UK search fund, with three human review gates. It took 200 companies through ownership checks, scoring, sourced research and drafted messages in 10 to 12 hours for about £80, against roughly 300 a week by three people by hand. About 61,000 lines of Python, with about 1,360 tests.</p>
+      </div>
+    </details>
   </article>
-  <article class="card">
+
+  <article class="card" id="ask">
     <h3>Ask [Firm]</h3>
     <dl class="rows">
       <dt>Problem</dt><dd>Years of past work nobody has time to search.</dd>
@@ -115,14 +183,70 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--rule);font-fa
       <dt>Stage</dt><dd>Proof of concept, deliberately scoped to one library.</dd>
     </dl>
     <p class="stack">Claude agent · read-only tools · DuckDB · citations</p>
+    <details>
+      <summary>How it works</summary>
+      <div class="how-body">
+        <h4>The flow</h4>
+        <ol class="flow">
+          <li><span>Question in plain English</span></li>
+          <li><span>Agent searches the index</span></li>
+          <li><span>Reads the source file</span></li>
+          <li><span>Answers with quote and file name</span></li>
+          <li class="h"><span>Colleague checks the source</span></li>
+        </ol>
+        <p class="key"><span><i></i>Software</span><span><i class="h"></i>A person decides</span></p>
+
+        <h4>Design choices</h4>
+        <ul class="pts">
+          <li><b>Read-only by design.</b> The agent works through 12 read-only tools. The firm's library is never copied or changed.</li>
+          <li><b>Read once, ask many times.</b> One client's files were read and summarised into a DuckDB index of about 2,250 documents, so each question is quick and cheap.</li>
+          <li><b>"I don't know" is a feature.</b> It answers only from the documents, quotes them and names the file, and says so when the answer is not there.</li>
+          <li><b>Scoped on purpose.</b> One client's library, because reusing one client's material on another mandate is a confidentiality question before it is a technical one.</li>
+        </ul>
+
+        <h4>Where it stands</h4>
+        <ul class="pts">
+          <li>Working proof of concept. The wider archive, about 20,000 documents over 13 years, has been surveyed for the next stage.</li>
+        </ul>
+      </div>
+    </details>
   </article>
-  <article class="card">
+
+  <article class="card" id="workshops">
     <h3>In-person Claude workshops</h3>
     <dl class="rows">
-      <dt>Did</dt><dd>A weekly hands-on workshop for the whole London office for three months, always on live work, then intensive sessions with the founders in Munich. Plus Claude Skills for core processes and a security review before rolling out an open-source MCP server.</dd>
+      <dt>Did</dt><dd>A weekly hands-on workshop for the whole London office for three months, then intensive sessions with the founders in Munich.</dd>
       <dt>Result</dt><dd>Everyone moved onto Claude Enterprise.</dd>
     </dl>
+    <details>
+      <summary>How I ran it</summary>
+      <div class="how-body">
+        <h4>The programme</h4>
+        <ol class="flow">
+          <li><span>Weekly sessions on live work</span></li>
+          <li><span>Repeat work into Skills</span></li>
+          <li><span>Test each Skill</span></li>
+          <li><span>Security review first</span></li>
+          <li><span>Firm-wide rollout</span></li>
+          <li><span>Founders trained in Munich</span></li>
+        </ol>
+
+        <h4>What made it stick</h4>
+        <ul class="pts">
+          <li><b>Live work, never toy examples.</b> Sessions always worked on the team's live tasks, across Claude, Cowork, connectors and the Excel, PowerPoint and Word add-ins.</li>
+          <li><b>Repeat work became Skills.</b> Core processes packaged as Claude Skills, each with instructions, scripts, templates and a QA checklist.</li>
+          <li><b>Measured, not assumed.</b> An evaluation harness on the databook Skill: a 100% pass rate with it against 84% without, three runs on each of three tests.</li>
+          <li><b>Security before convenience.</b> Before rolling out an open-source Companies House MCP server (18 tools), I reviewed it, pinned the version, packaged it for one-file install and wrote the risk briefing.</li>
+        </ul>
+
+        <h4>Result</h4>
+        <ul class="pts">
+          <li>The whole firm moved onto Claude Enterprise, and a colleague has since brought a tool of his own onto the hub.</li>
+        </ul>
+      </div>
+    </details>
   </article>
+
 </div>
 
 <h2>How I work</h2>
